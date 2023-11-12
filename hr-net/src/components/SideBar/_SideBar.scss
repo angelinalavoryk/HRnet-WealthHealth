@@ -1,0 +1,44 @@
+
+.sidebar {
+    background-color: #ffffff;
+    width: 290px;
+    height: 100vh;
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 30px;
+    }
+    nav li {
+      margin-bottom: 10px;
+      a {
+        font-size: 1rem;
+        font-weight: 400;
+        text-decoration: none;
+        color: rgb(144, 134, 134);
+        cursor: pointer;
+        border: none;
+      }
+    }
+    .emoji-employee{
+      font-size: 25px;
+      margin-right: 10px;
+    }
+  }
+  
+
+  .link-employee{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 50px;
+  }
+
+
+.link-employee.active {
+  border-left: 4px solid #5fc00a; 
+  color: rgb(61, 61, 61);
+  background-color: #f7fae6d1;
+}
+
+

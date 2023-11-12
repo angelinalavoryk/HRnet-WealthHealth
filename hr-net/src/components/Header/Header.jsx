@@ -3,11 +3,15 @@ import './_Header.scss';
 import logo from '../../images/logo.png';
 
 
-function Header() {
+function Header({title}) {
   return (
     <header className="header">
-        <img src={logo} alt="Logo de l'entreprise" className='logo-img'/>  
-        <h1 className='header-name'>HRnet</h1>
+        <div className='header-logo'> 
+            <img src={logo} alt="Logo de l'entreprise" className='logo-img'/>  
+            <h1 className='logo-name'> Wealth Health</h1>
+        </div>
+        <h2 className='project-name'>HRnet</h2>
+        <h3>{title}</h3>
     </header>
   );
 }

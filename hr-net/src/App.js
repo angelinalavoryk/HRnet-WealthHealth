@@ -28,7 +28,7 @@
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Home from './pages/Home/Home';
-import AsideNav from './components/AsideNav/AsideNav';
+import AsideNav from './components/SideBar/SideBar';
 import './App.css';
 import Employees from "./pages/Employees/Employees";
 
