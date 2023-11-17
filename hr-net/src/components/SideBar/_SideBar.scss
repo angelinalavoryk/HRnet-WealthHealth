@@ -12,7 +12,7 @@
     nav li {
       margin-bottom: 10px;
       a {
-        font-size: 1rem;
+        font-size: 0.9rem;
         font-weight: 400;
         text-decoration: none;
         color: rgb(144, 134, 134);
@@ -21,24 +21,29 @@
       }
     }
     .emoji-employee{
-      font-size: 25px;
+      width: 19px;
+      font-size: 20px;
+      margin-right: 10px;
+    }
+    .png-employee-list{
+      width: 17px;
+      height: 18px;
       margin-right: 10px;
     }
   }
-  
 
   .link-employee{
     display: flex;
     align-items: center;
     gap: 10px;
-    padding-left: 50px;
+    padding-left: 28px;
   }
 
-
 .link-employee.active {
-  border-left: 4px solid #5fc00a; 
-  color: rgb(61, 61, 61);
-  background-color: #f7fae6d1;
+  border-left: 4px solid #6ed217; 
+  color: rgb(37, 37, 37);
+  // background-color: #eafae6d1;
+  padding-left: 25px;
 }
 
 

@@ -1,10 +1,17 @@
 import React from 'react';
 import './_Employees.scss';
-function Employees(){
-    <>
-   <div className='bg'>
-   </div>
-    </>
-}
+const Employee = () => {
+  return (
+    <div className='employee'>
+       
+    </div>
+  );
+};
 
-export default Employees;
+export default Employee;
+
+
+
+
+
+
