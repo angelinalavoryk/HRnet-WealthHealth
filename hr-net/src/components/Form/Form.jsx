@@ -3,6 +3,7 @@ import './_Form.scss';
 import logo from '../../images/logo.png';
 import employees from '../../images/employees.png';
 import { states } from '../../data/states.js';
+import { validateForm } from '../../hooks/FormValidation.jsx'; 
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -12,7 +13,7 @@ const Form = () => {
     startDate: '',
     street: '',
     city: '',
-    state: 'Alabama',
+    state: '',
     zipCode: '',
     department: 'Sales',
   });
@@ -37,85 +38,16 @@ const Form = () => {
     });
   };
 
-  const validateForm = () => {
-    let isValid = true;
-    const newErrors = { ...formErrors };
-
-    if (formData.firstName.trim() === '') {
-      newErrors.firstName = 'Please enter a first name.';
-      isValid = false;
-    } else {
-      newErrors.firstName = '';
-    }
-
-    if (formData.lastName.trim() === '') {
-      newErrors.lastName = 'Please enter a last name.';
-      isValid = false;
-    } else {
-      newErrors.lastName = '';
-    }
-
-    if (formData.dateOfBirth.trim() === '') {
-      newErrors.dateOfBirth = 'Please enter a date of birth.';
-      isValid = false;
-    } else {
-      newErrors.dateOfBirth = '';
-    }
-
-    if (formData.startDate.trim() === '') {
-      newErrors.startDate = 'Please enter a start date.';
-      isValid = false;
-    } else {
-      newErrors.startDate = '';
-    }
-
-    if (formData.street.trim() === '') {
-      newErrors.street = 'Please enter a street address.';
-      isValid = false;
-    } else {
-      newErrors.street = '';
-    }
-
-    if (formData.city.trim() === '') {
-      newErrors.city = 'Please enter a city.';
-      isValid = false;
-    } else {
-      newErrors.city = '';
-    }
-
-    if (formData.state.trim() === '') {
-      newErrors.state = 'Please select a state.';
-      isValid = false;
-    } else {
-      newErrors.state = '';
-    }
-
-    if (formData.zipCode.trim() === '') {
-      newErrors.zipCode = 'Please enter a zip code.';
-      isValid = false;
-    } else {
-      newErrors.zipCode = '';
-    }
-
-    if (formData.department.trim() === '') {
-      newErrors.department = 'Please select a department.';
-      isValid = false;
-    } else {
-      newErrors.department = '';
-    }
-
-    setFormErrors(newErrors);
-    return isValid;
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    const isValid = validateForm();
+    const errors = validateForm(formData);
 
-    if (isValid) {
+    if (Object.keys(errors).length === 0) {
       console.log('Formulaire valide, envoyez les données :', formData);
+      setFormErrors({});
     } else {
       console.log('Le formulaire comporte des erreurs.');
+      setFormErrors(errors);
     }
   };
 
@@ -277,3 +209,6 @@ const Form = () => {
 };
 
 export default Form;
+
+
+

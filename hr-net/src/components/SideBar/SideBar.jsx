@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom'; 
-// import employees from '../../images/employees.png';
 import list from '../../images/list.png'
 import './_SideBar.scss';
 
@@ -15,13 +14,11 @@ function AsideNav() {
           <li>
             <Link to="/" className={location.pathname === '/' ? 'link-employee active' : 'link-employee'}>
               <span className="emoji-employee">➕</span>
-            {/* <img src={employees} alt="" className='emoji-employee'/> */}
               <p className='txt-employee'>Add Employee</p>
             </Link>
           </li>
           <li>
             <Link to="/employees" className={location.pathname === '/employees' ? 'link-employee active' : 'link-employee'}>
-              {/* <span className="emoji-employee">👩‍💼</span> */}
               <img src={list} alt="" className='png-employee-list'/>
               <p className='txt-employee'>List Employees</p>
             </Link>
