@@ -7,6 +7,7 @@ import Employees from "./pages/Employees/Employees";
 import NotFound from "./pages//NotFound/NotFound.jsx";
 
 function App() {
+  const employees = JSON.parse(localStorage.getItem('employees')) || [];
   
     return (
       <div className="app">
@@ -15,7 +16,7 @@ function App() {
         <AsideNav/>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/employees" element={<Employees />} />
+            <Route path="/employees" element={<Employees employees={employees}/>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
