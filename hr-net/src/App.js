@@ -8,13 +8,13 @@ import NotFound from "./pages//NotFound/NotFound.jsx";
 
 function App() {
   const employees = JSON.parse(localStorage.getItem('employees')) || [];
-  
+
     return (
       <div className="app">
         <Header/>
         <div className="content">
         <AsideNav/>
-          <Routes>
+          <Routes basename="/HRnet-WealthHealth">
             <Route path="/" element={<Home />} />
             <Route path="/employees" element={<Employees employees={employees}/>} />
             <Route path="*" element={<NotFound />} />
