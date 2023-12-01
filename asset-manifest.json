@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/HRnet-WealthHealth/static/css/main.60ae1faa.css",
+    "main.js": "/HRnet-WealthHealth/static/js/main.df7f684c.js",
+    "static/media/logo.png": "/HRnet-WealthHealth/static/media/logo.1f882d8e806e56a80f6f.png",
+    "static/media/employees.png": "/HRnet-WealthHealth/static/media/employees.afb5f8994cf13eaf8f8e.png",
+    "index.html": "/HRnet-WealthHealth/index.html",
+    "main.60ae1faa.css.map": "/HRnet-WealthHealth/static/css/main.60ae1faa.css.map",
+    "main.df7f684c.js.map": "/HRnet-WealthHealth/static/js/main.df7f684c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.60ae1faa.css",
+    "static/js/main.df7f684c.js"
+  ]
+}
