@@ -14,7 +14,7 @@ function App() {
         <Header/>
         <div className="content">
         <AsideNav/>
-          <Routes basename="/HRnet-WealthHealth">
+          <Routes >
             <Route path="/" element={<Home />} />
             <Route path="/employees" element={<Employees employees={employees}/>} />
             <Route path="*" element={<NotFound />} />
