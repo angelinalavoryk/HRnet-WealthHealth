@@ -490,7 +490,8 @@ const Form = () => {
                     State
                   </label>
                   <Select
-                    name='state'
+                  className='select-state'
+                    name='selection state'
                     id='state'
                     value={formData.state}
                     options={stateOptions}
@@ -508,7 +509,8 @@ const Form = () => {
             <div className='department'>
               <label htmlFor='department'>Department</label>
               <Select
-                name='department'
+              className='select-departement'
+                name='selection departement'
                 id='department'
                 value={formData.department}
                 options={departmentOptions}
