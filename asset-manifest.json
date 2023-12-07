@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/HRnet-WealthHealth/static/css/main.b7913082.css",
-    "main.js": "/HRnet-WealthHealth/static/js/main.c11d0aee.js",
+    "main.css": "/HRnet-WealthHealth/static/css/main.18544022.css",
+    "main.js": "/HRnet-WealthHealth/static/js/main.98d0d677.js",
     "static/media/logo.png": "/HRnet-WealthHealth/static/media/logo.1f882d8e806e56a80f6f.png",
     "static/media/employees.png": "/HRnet-WealthHealth/static/media/employees.afb5f8994cf13eaf8f8e.png",
     "index.html": "/HRnet-WealthHealth/index.html",
-    "main.b7913082.css.map": "/HRnet-WealthHealth/static/css/main.b7913082.css.map",
-    "main.c11d0aee.js.map": "/HRnet-WealthHealth/static/js/main.c11d0aee.js.map"
+    "main.18544022.css.map": "/HRnet-WealthHealth/static/css/main.18544022.css.map",
+    "main.98d0d677.js.map": "/HRnet-WealthHealth/static/js/main.98d0d677.js.map"
   },
   "entrypoints": [
-    "static/css/main.b7913082.css",
-    "static/js/main.c11d0aee.js"
+    "static/css/main.18544022.css",
+    "static/js/main.98d0d677.js"
   ]
 }
