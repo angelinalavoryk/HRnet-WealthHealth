@@ -5,16 +5,18 @@ import employees from '../../images/employees.png';
 import { states } from '../../data/states.js';
 import { validateForm } from '../../hooks/FormValidation.jsx'; 
 import DatePicker from '../DatePicker/DatePicker.jsx';
-import Select from 'react-dropdown-select';
+// import Select from 'react-dropdown-select';
 import { Modale } from "npm-modale-lib-react"; 
+
+import Select from 'react-select';
 
 
 const Form = () => {
-  const handleSelectChange = (selected, name) => {
-    const selectedValue = selected[0] || '';
+  const handleSelectChange = (selectedOption, name) => {
+    const selectedValue = selectedOption ? selectedOption.value : '';
     setFormData({
       ...formData,
-      [name]: selectedValue.value,
+      [name]: selectedValue,
     });
   };
 
@@ -39,7 +41,7 @@ const Form = () => {
     startDate: '',   
     street: '',
     city: '',
-    state: '',
+    state: stateOptions[0].value,
     zipCode: '',
     department: 'Sales',
   });
@@ -120,7 +122,10 @@ const Form = () => {
             <img src={employees} alt='' className='employee-add-emoji' />
             Please complete the form to add a new employee
           </h2>
+
+
           <form action='#' id='create-employee' onSubmit={handleSubmit}>
+
             <div className='first-last-name'>
               <div className='first-last-name-div'>
                 <label htmlFor='first-name'>First Name</label>
@@ -149,28 +154,53 @@ const Form = () => {
                 )}
               </div>
             </div>
-            <label htmlFor='date-of-birth'>Date of Birth</label>
-            <DatePicker
-              selected={formData.dateOfBirth}
-              onChange={(date) => handleDateChange(date, 'dateOfBirth')}
-            />
-            {formErrors.dateOfBirth && (
-              <p className='error-message'>{formErrors.dateOfBirth}</p>
-            )}
-            <label htmlFor='start-date'>Start Date</label>
-            <DatePicker
-              selected={formData.startDate}
-              onChange={(date) => handleDateChange(date, 'startDate')}
-            />
-            {formErrors.startDate && (
-              <p className='error-message'>{formErrors.startDate}</p>
-            )}
 
+            <div className='dates-container'> 
+              <div className='container-date-of-birth-and-start-day'> 
+                <label htmlFor='date-of-birth'>Date of Birth</label>
+                <DatePicker
+                  selected={formData.dateOfBirth}
+                  onChange={(date) => handleDateChange(date, 'dateOfBirth')}
+                />
+                {formErrors.dateOfBirth && (
+                  <p className='error-message'>{formErrors.dateOfBirth}</p>
+                )}
+              </div>
+              <div className='container-date-of-birth-and-start-day'> 
+                <label htmlFor='start-date'>Start Date</label>
+                <DatePicker
+                  selected={formData.startDate}
+                  onChange={(date) => handleDateChange(date, 'startDate')}
+                />
+                {formErrors.startDate && (
+                  <p className='error-message'>{formErrors.startDate}</p>
+                )}
+              </div>
+            </div>
+
+            <div className='department'>
+              <label htmlFor='department'>Department</label>
+             <Select
+                name='department'
+                id='department'
+                value={{ value: formData.department, label: formData.department }}
+                options={departmentOptions.map(option => ({
+                  value: option.value,
+                  label: option.label
+                }))}
+                onChange={(selectedOption) =>
+                  handleSelectChange(selectedOption, 'department')
+                }
+                placeholder="Select a department"
+              />
+              {formErrors.department && (
+                <p className='error-message'>{formErrors.department}</p>
+              )}
+            </div>
 
 
             <fieldset className='address'>
               <legend>Address</legend>
-
               <label htmlFor='street'>Street</label>
               <input
                 id='street'
@@ -183,69 +213,56 @@ const Form = () => {
                 <p className='error-message'>{formErrors.street}</p>
               )}
 
-              <label htmlFor='city'>City</label>
-              <input
-                id='city'
-                type='text'
-                name='city'
-                value={formData.city}
-                onChange={handleInputChange}
-              />
-              {formErrors.city && (
-                <p className='error-message'>{formErrors.city}</p>
-              )}
-              <div className='zip-state-div'>
-                <div className='zip-state-position-div'>
+
+
+              <div className='container-adresse-city-zip'> 
+                <div className='container-city-zip'> 
+                <label htmlFor='city'>City</label>
+                <input
+                  id='city'
+                  type='text'
+                  name='city'
+                  value={formData.city}
+                  onChange={handleInputChange}
+                />
+                {formErrors.city && (
+                  <p className='error-message'>{formErrors.city}</p>
+                )}
+                </div>
+                <div className='container-city-zip'> 
                   <label htmlFor='zip-code'>Zip Code</label>
-                  <input
-                    id='zip-code'
-                    type='number'
-                    name='zipCode'
-                    value={formData.zipCode}
-                    onChange={handleInputChange}
-                  />
-                  {formErrors.zipCode && (
-                    <p className='error-message'>{formErrors.zipCode}</p>
-                  )}
+                    <input
+                      id='zip-code'
+                      type='number'
+                      name='zipCode'
+                      value={formData.zipCode}
+                      onChange={handleInputChange}
+                    />
+                    {formErrors.zipCode && (
+                      <p className='error-message'>{formErrors.zipCode}</p>
+                    )}
+                    </div>
                 </div>
-                <div className='zip-state-position-div'>
-                  <label htmlFor='state' className='state-label'>
-                    State
-                  </label>
-                  <Select
-                    name='state'
-                    id='state'
-                    value={formData.state}
-                    options={stateOptions}
-                    onChange={(selected) =>
-                    handleSelectChange(selected, 'state')
-                    }
-                    placeholder="Select a state"
-                  />
-                  {formErrors.state && (
-                    <p className='error-message'>{formErrors.state}</p>
-                  )}
-                </div>
-              </div>
+
+                <label htmlFor='state' className='state-label'>
+                  State
+                </label>
+                <Select
+                  name='state'
+                  id='state'
+                  value={{ value: formData.state, label: formData.state }}
+                  options={stateOptions.map(option => ({
+                    value: option.value,
+                    label: option.label
+                  }))}
+                  onChange={(selectedOption) => handleSelectChange(selectedOption, 'state')}
+                  placeholder="Select a state"
+                />
+                {formErrors.state && (
+                  <p className='error-message'>{formErrors.state}</p>
+                )}
             </fieldset>
 
-
-            <div className='department'>
-              <label htmlFor='department'>Department</label>
-              <Select
-                name='department'
-                id='department'
-                value={formData.department}
-                options={departmentOptions}
-                onChange={(selected) =>
-                  handleSelectChange(selected, 'department')
-                }
-                placeholder="Select a department"
-              />
-              {formErrors.department && (
-                <p className='error-message'>{formErrors.department}</p>
-              )}
-            </div>
             <button type='submit' className='button-save'>
               Save
             </button>
