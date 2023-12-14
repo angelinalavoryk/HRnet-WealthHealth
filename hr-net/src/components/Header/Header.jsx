@@ -3,7 +3,7 @@ import './_Header.scss';
 import logo from '../../images/logo.png';
 
 
-function Header({title}) {
+function Header() {
   return (
     <header className="header">
         <div className='header-logo'> 
@@ -11,10 +11,8 @@ function Header({title}) {
             <h1 className='logo-name'> Wealth Health</h1>
         </div>
         <h2 className='project-name'>HRnet</h2>
-        <h3>{title}</h3>
     </header>
   );
 }
 
 export default Header;
-

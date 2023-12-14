@@ -4,10 +4,9 @@ import logo from '../../images/logo.png';
 import employees from '../../images/employees.png';
 import { states } from '../../data/states.js';
 import { validateForm } from '../../hooks/FormValidation.jsx'; 
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+import DatePicker from '../DatePicker/DatePicker.jsx';
 import Select from 'react-dropdown-select';
-import { Modale } from "modal-react-lib-projet-14"; 
+import { Modale } from "npm-modale-lib-react"; 
 
 
 const Form = () => {
@@ -154,9 +153,6 @@ const Form = () => {
             <DatePicker
               selected={formData.dateOfBirth}
               onChange={(date) => handleDateChange(date, 'dateOfBirth')}
-              dateFormat='MM/dd/yyyy'
-              id='date-of-birth'
-              name='dateOfBirth'
             />
             {formErrors.dateOfBirth && (
               <p className='error-message'>{formErrors.dateOfBirth}</p>
@@ -165,13 +161,13 @@ const Form = () => {
             <DatePicker
               selected={formData.startDate}
               onChange={(date) => handleDateChange(date, 'startDate')}
-              dateFormat='MM/dd/yyyy'
-              id='start-date'
-              name='startDate'
             />
             {formErrors.startDate && (
               <p className='error-message'>{formErrors.startDate}</p>
             )}
+
+
+
             <fieldset className='address'>
               <legend>Address</legend>
 
@@ -199,58 +195,57 @@ const Form = () => {
                 <p className='error-message'>{formErrors.city}</p>
               )}
               <div className='zip-state-div'>
-  <div className='zip-state-position-div'>
-    <label htmlFor='zip-code'>Zip Code</label>
-    <input
-      id='zip-code'
-      type='number'
-      name='zipCode'
-      value={formData.zipCode}
-      onChange={handleInputChange}
-    />
-    {formErrors.zipCode && (
-      <p className='error-message'>{formErrors.zipCode}</p>
-    )}
-  </div>
-  <div className='zip-state-position-div'>
-    <label htmlFor='state' className='state-label'>
-      State
-    </label>
-    <Select
-      className='select-state'
-      name='selection state'
-      id='state'
-      value={formData.state}
-      options={stateOptions}
-      onChange={(selected) =>
-        handleSelectChange(selected, 'state')
-      }
-      placeholder="Select a state"
-    />
-    {formErrors.state && (
-      <p className='error-message'>{formErrors.state}</p>
-    )}
-  </div>
-</div>
-
+                <div className='zip-state-position-div'>
+                  <label htmlFor='zip-code'>Zip Code</label>
+                  <input
+                    id='zip-code'
+                    type='number'
+                    name='zipCode'
+                    value={formData.zipCode}
+                    onChange={handleInputChange}
+                  />
+                  {formErrors.zipCode && (
+                    <p className='error-message'>{formErrors.zipCode}</p>
+                  )}
+                </div>
+                <div className='zip-state-position-div'>
+                  <label htmlFor='state' className='state-label'>
+                    State
+                  </label>
+                  <Select
+                    name='state'
+                    id='state'
+                    value={formData.state}
+                    options={stateOptions}
+                    onChange={(selected) =>
+                    handleSelectChange(selected, 'state')
+                    }
+                    placeholder="Select a state"
+                  />
+                  {formErrors.state && (
+                    <p className='error-message'>{formErrors.state}</p>
+                  )}
+                </div>
+              </div>
             </fieldset>
+
+
             <div className='department'>
-  <label htmlFor='department'>Department</label>
-  <Select
-    className='select-departement'
-    name='selection departement'
-    id='department'
-    value={formData.department}
-    options={departmentOptions}
-    onChange={(selected) =>
-      handleSelectChange(selected, 'department')
-    }
-    placeholder="Select a department"
-  />
-  {formErrors.department && (
-    <p className='error-message'>{formErrors.department}</p>
-  )}
-</div>
+              <label htmlFor='department'>Department</label>
+              <Select
+                name='department'
+                id='department'
+                value={formData.department}
+                options={departmentOptions}
+                onChange={(selected) =>
+                  handleSelectChange(selected, 'department')
+                }
+                placeholder="Select a department"
+              />
+              {formErrors.department && (
+                <p className='error-message'>{formErrors.department}</p>
+              )}
+            </div>
             <button type='submit' className='button-save'>
               Save
             </button>
