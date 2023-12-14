@@ -5,7 +5,6 @@ import employees from '../../images/employees.png';
 import { states } from '../../data/states.js';
 import { validateForm } from '../../hooks/FormValidation.jsx'; 
 import DatePicker from '../DatePicker/DatePicker.jsx';
-// import Select from 'react-dropdown-select';
 import { Modale } from "npm-modale-lib-react"; 
 
 import Select from 'react-select';
