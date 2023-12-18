@@ -41,7 +41,7 @@ Avant de commencer à travailler sur ce projet, assurez-vous d'avoir les éléme
 
 ---
 
-Lien vers la bibliothèque Modale du projet ⤵️: 
+Lien vers la bibliothèque Modale du projet ➡️: 
 [npm-modale-lib-react](https://www.npmjs.com/package/npm-modale-lib-react?activeTab=readme)
 
 
