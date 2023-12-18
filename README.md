@@ -7,7 +7,7 @@
 
 Ce projet vise à convertir l'application web interne HRnet de WealthHealth, actuellement basée sur jQuery, en une application React moderne et performante. L'objectif est de résoudre les problèmes de performance et de stabilité liés à l'utilisation de plugins jQuery obsolètes, ainsi que d'améliorer la maintenabilité de l'application 🚀.
 
-[Voir le site web](https://angelinalavoryk.github.io/HRnet-WealthHealth/)
+[Voir le site web 🔻](https://angelinalavoryk.github.io/HRnet-WealthHealth/)
 
 
 ## Prérequis
@@ -42,6 +42,6 @@ Avant de commencer à travailler sur ce projet, assurez-vous d'avoir les éléme
 ---
 
 Lien vers la bibliothèque Modale du projet : 
-[npm-modale-lib-react :rocket:](https://www.npmjs.com/package/npm-modale-lib-react?activeTab=readme)
+[npm-modale-lib-react](https://www.npmjs.com/package/npm-modale-lib-react?activeTab=readme)
 
 
