@@ -1,9 +1,9 @@
 # Projet HRnet-Wealth-Health
-![JavaScript](https://img.shields.io/badge/JavaScript-yellow)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![React](https://img.shields.io/badge/React-blue)
-![HTML](https://img.shields.io/badge/HTML5-red)
-![CSS](https://img.shields.io/badge/CSS3-blue)
-![Sass](https://img.shields.io/badge/Sass-pink)
+![HTML](https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white)
+![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
 
 
 Ce projet vise à convertir l'application web interne HRnet de WealthHealth, actuellement basée sur jQuery, en une application React moderne et performante. L'objectif est de résoudre les problèmes de performance et de stabilité liés à l'utilisation de plugins jQuery obsolètes, ainsi que d'améliorer la maintenabilité de l'application 🚀.
