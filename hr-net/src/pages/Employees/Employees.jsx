@@ -1,4 +1,3 @@
-
 import React, { useMemo } from 'react';
 import { useTable, useSortBy, useGlobalFilter, usePagination } from 'react-table';
 import './_Employees.scss';
@@ -56,7 +55,6 @@ const Employees = ({ employees }) => {
     []
   );
 
-  // const data = useMemo(() => employees, [employees]);
   const data = useMemo(() => {
     return employees.map((employee) => ({
       ...employee,
@@ -99,22 +97,21 @@ const Employees = ({ employees }) => {
       <div className='search-bar'>
         <span> 🔍 </span>
         <input
-        className='input-search-bar'
+          className='input-search-bar'
           type='text'
           placeholder='Search...'
           value={globalFilter || ''}
           onChange={(e) => setGlobalFilter(e.target.value)}
         />
       </div>
-
       {/* Option de choix du nombre d'employés affichés */}
       <div className='display-options'>
-       <p>Showing</p>
+       Showing
         <select
-        className='select'
+          className='select'
           value={pageSize}
           onChange={(e) => {
-            setPageSize(Number(e.target.value));
+          setPageSize(Number(e.target.value));
           }}
         > 
           {[10, 25, 50, 100].map((pageSize) => (
@@ -123,9 +120,8 @@ const Employees = ({ employees }) => {
             </option>
           ))}
         </select>
-        <p>entries</p>
+        entries
       </div>
-
       {/* Tableau avec flèches pour trier les colonnes */}
       <table {...getTableProps()} className='display'>
         <thead>
@@ -166,34 +162,26 @@ const Employees = ({ employees }) => {
           })}
         </tbody>
       </table>
-
-      <div className='container-bottom-list'>
         {/* Showing Entries */}
+      <div className='container-bottom-list'>
         <div> 
-      <span className='showing-entries-txt'>
-        Showing {pageIndex * pageSize + 1} to {' '}
-          {Math.min((pageIndex + 1) * pageSize, data.length)} of {data.length} entries
-        </span>
+          <span className='showing-entries-txt'> 
+            Showing {pageIndex * pageSize + 1} to {' '}
+            {Math.min((pageIndex + 1) * pageSize, data.length)} of {data.length} entries
+          </span>
         </div>
-          {/* Pagination */}
-          <div className='pagination'>
-                  <button className='button-navigation-page' onClick={() => previousPage()} disabled={!canPreviousPage}>
-                    Précédent
-                  </button>
-                  <span>
-                    {pageIndex + 1} / {pageOptions.length}
-                  </span>
-                  <button className='button-navigation-page' onClick={() => nextPage()} disabled={!canNextPage}>
-                    Suivant
-                  </button>
-                </div>
+        {/* Pagination */}
+        <div className='pagination'>
+          <button className='button-navigation-page' onClick={() => previousPage()} disabled={!canPreviousPage}>Précédent</button>
+          <span> {pageIndex + 1} / {pageOptions.length} </span>
+          <button className='button-navigation-page' onClick={() => nextPage()} disabled={!canNextPage}>Suivant</button>
+        </div>
       </div>
-
-      
     </div>
     </div>
   );
 };
 
 export default Employees;
+
 
