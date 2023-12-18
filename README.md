@@ -37,3 +37,8 @@ Avant de commencer à travailler sur ce projet, assurez-vous d'avoir les éléme
    npm start
 
 
+
+
+[npm-modale-lib-react](https://www.npmjs.com/package/npm-modale-lib-react?activeTab=readme)
+
+
