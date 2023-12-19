@@ -9,20 +9,21 @@ import NotFound from "./pages//NotFound/NotFound.jsx";
 function App() {
   const employees = JSON.parse(localStorage.getItem('employees')) || [];
 
-    return (
-      <div className="app">
-        <Header/>
-        <div className="content">
-        <AsideNav/>
+  return (
+    <div className="app">
+      <Header />
+      <div className="content">
+        <AsideNav />
+        <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/employees" element={<Employees employees={employees}/>} />
+            <Route path="/employees" element={<Employees employees={employees} />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </div>
+        </main>
       </div>
-    );
-  }
-
+    </div>
+  );
+}
 
 export default App;

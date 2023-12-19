@@ -123,7 +123,7 @@ const Employees = ({ employees }) => {
         entries
       </div>
       {/* Tableau avec flèches pour trier les colonnes */}
-      <table {...getTableProps()} className='display'>
+      <table {...getTableProps()} className='display responsive-table'>
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>

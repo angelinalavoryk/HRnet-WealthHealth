@@ -1,3 +1,6 @@
+.container{
+  width: 90%;
+}
 .modale{
     width: 570px;
     height: 610px;
@@ -46,7 +49,6 @@
 #create-employee {
     display: flex;
     flex-direction: column;
-    width: 450px;
     justify-content: center;
 }
 
@@ -175,6 +177,25 @@ form input[type="number"] {
    background-color: red;
   }
 
+
+  @media screen and (max-width: 800px) {
+    .modale {
+        width: 400px;
+    }
+  }
+  @media screen and (max-width: 630px) {
+    .modale {
+        width: 300px;
+      height: 710px;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .modale {
+        width: 200px;
+    }
+  }
 
 
 

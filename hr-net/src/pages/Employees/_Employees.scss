@@ -1,12 +1,17 @@
 .employee{
-    width: 100%;
     display: flex;
+    // margin: 20px 0 50px 20px;
     justify-content: center;
-    margin-bottom: 50px;
 }
 .employee-list{
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
 }
+
+// .display{
+//   width: 1350px;
+// }
 
 .search-bar{
     display: flex;
@@ -27,6 +32,7 @@
 
 .display-options{
     margin-top: 10px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -81,6 +87,5 @@ th {
   }
 
 
-
-
+  
   

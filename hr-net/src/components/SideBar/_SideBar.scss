@@ -1,49 +1,49 @@
-
 .sidebar {
-    background-color: #ffffff;
-    width: 290px;
-    height: 100vh;
-    border-right: 1px solid rgb(212, 211, 211);
+  background-color: white;
+  width: 280px; 
+  height: 100vh;
+  border-right: 1px solid rgb(212, 211, 211);
 
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 30px;
-    }
-    nav li {
-      margin-bottom: 10px;
-      a {
-        font-size: 0.9rem;
-        font-weight: 400;
-        text-decoration: none;
-        color: rgb(144, 134, 134);
-        cursor: pointer;
-        border: none;
-      }
-    }
-    .emoji-employee{
-      width: 19px;
-      font-size: 20px;
-      margin-right: 10px;
-    }
-    .png-employee-list{
-      height: 18px;
-      margin-right: 10px;
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+  }
+  nav li {
+    margin-bottom: 10px;
+    a {
+      display: flex; 
+      align-items: center; 
+      padding: 0 20px; 
+      font-size: 0.9rem;
+      font-weight: 400;
+      text-decoration: none;
+      color: rgb(144, 134, 134);
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease; 
     }
   }
 
-  .link-employee{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding-left: 28px;
+  .emoji-employee {
+    width: 18px;
+    font-size: 20px;
+    margin-right: 10px;
   }
 
-.link-employee.active {
-  border-left: 4px solid #6ed217; 
-  color: rgb(37, 37, 37);
-  // background-color: #eafae6d1;
-  padding-left: 25px;
+  .png-employee-list {
+    height: 18px;
+    margin-right: 10px;
+  }
 }
 
+.link-employee.active {
+  border-left: 4px solid #6ed217;
+  color: rgb(37, 37, 37);
+  background-color: #f2f8f1d1;
+  padding-left: 20px; 
+}
 
+.link-employee:hover {
+  background-color: #f7f7f7; 
+}
