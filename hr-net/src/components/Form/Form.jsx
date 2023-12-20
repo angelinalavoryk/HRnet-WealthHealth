@@ -3,14 +3,15 @@ import './_Form.scss';
 import logo from '../../images/logo.png';
 import employees from '../../images/employees.png';
 import { states } from '../../data/states.js';
-import { validateForm } from '../../hooks/FormValidation.jsx'; 
+import { validateForm } from '../../utils/FormValidation.js'; 
 import DatePicker from '../DatePicker/DatePicker.jsx';
 import { Modale } from "npm-modale-lib-react"; 
-
+import { useEmployeeContext } from '../../utils/EmployeeContext.js';
 import Select from 'react-select';
 
-
 const Form = () => {
+  const { addEmployee } = useEmployeeContext();
+
   const handleSelectChange = (selectedOption, name) => {
     const selectedValue = selectedOption ? selectedOption.value : '';
     setFormData({
@@ -36,8 +37,8 @@ const Form = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
-    dateOfBirth: '', 
-    startDate: '',   
+    dateOfBirth: '',
+    startDate: '',
     street: '',
     city: '',
     state: stateOptions[0].value,
@@ -75,16 +76,14 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const errors = validateForm(formData);
-  
+
     if (Object.keys(errors).length === 0) {
       console.log('Formulaire valide, envoyez les données :', formData);
       setFormErrors({});
-      
-      // Sauvegarde des données dans le stockage local
-      const employeesData = JSON.parse(localStorage.getItem('employees')) || [];
-      employeesData.push(formData);
-      localStorage.setItem('employees', JSON.stringify(employeesData));
-      
+
+      // Ajouter l'employé en utilisant le contexte
+      addEmployee(formData);
+
       // Afficher la confirmation
       setIsConfirmationVisible(true);
     } else {
@@ -99,8 +98,8 @@ const Form = () => {
     setFormData({
       firstName: '',
       lastName: '',
-      dateOfBirth: '', 
-      startDate: '',   
+      dateOfBirth: '',
+      startDate: '',
       street: '',
       city: '',
       state: '',
@@ -108,7 +107,7 @@ const Form = () => {
       department: 'Sales',
     });
   };
-  
+
   return (
     <div className='bg'>
       <div className='modale'>
@@ -121,7 +120,6 @@ const Form = () => {
             <img src={employees} alt='' className='employee-add-emoji' />
             Please complete the form to add a new employee
           </h2>
-
 
           <form action='#' id='create-employee' onSubmit={handleSubmit}>
 
@@ -154,8 +152,8 @@ const Form = () => {
               </div>
             </div>
 
-            <div className='dates-container'> 
-              <div className='container-date-of-birth-and-start-day'> 
+            <div className='dates-container'>
+              <div className='container-date-of-birth-and-start-day'>
                 <label htmlFor='date-of-birth'>Date of Birth</label>
                 <DatePicker
                   selected={formData.dateOfBirth}
@@ -165,7 +163,7 @@ const Form = () => {
                   <p className='error-message'>{formErrors.dateOfBirth}</p>
                 )}
               </div>
-              <div className='container-date-of-birth-and-start-day'> 
+              <div className='container-date-of-birth-and-start-day'>
                 <label htmlFor='start-date'>Start Date</label>
                 <DatePicker
                   selected={formData.startDate}
@@ -179,7 +177,7 @@ const Form = () => {
 
             <div className='department'>
               <label htmlFor='department'>Department</label>
-             <Select
+              <Select
                 name='department'
                 id='department'
                 value={{ value: formData.department, label: formData.department }}
@@ -197,7 +195,6 @@ const Form = () => {
               )}
             </div>
 
-
             <fieldset className='address'>
               <legend>Address</legend>
               <label htmlFor='street'>Street</label>
@@ -212,54 +209,52 @@ const Form = () => {
                 <p className='error-message'>{formErrors.street}</p>
               )}
 
-
-
-              <div className='container-adresse-city-zip'> 
-                <div className='container-city-zip'> 
-                <label htmlFor='city'>City</label>
-                <input
-                  id='city'
-                  type='text'
-                  name='city'
-                  value={formData.city}
-                  onChange={handleInputChange}
-                />
-                {formErrors.city && (
-                  <p className='error-message'>{formErrors.city}</p>
-                )}
+              <div className='container-adresse-city-zip'>
+                <div className='container-city-zip'>
+                  <label htmlFor='city'>City</label>
+                  <input
+                    id='city'
+                    type='text'
+                    name='city'
+                    value={formData.city}
+                    onChange={handleInputChange}
+                  />
+                  {formErrors.city && (
+                    <p className='error-message'>{formErrors.city}</p>
+                  )}
                 </div>
-                <div className='container-city-zip'> 
+                <div className='container-city-zip'>
                   <label htmlFor='zip-code'>Zip Code</label>
-                    <input
-                      id='zip-code'
-                      type='number'
-                      name='zipCode'
-                      value={formData.zipCode}
-                      onChange={handleInputChange}
-                    />
-                    {formErrors.zipCode && (
-                      <p className='error-message'>{formErrors.zipCode}</p>
-                    )}
-                    </div>
+                  <input
+                    id='zip-code'
+                    type='number'
+                    name='zipCode'
+                    value={formData.zipCode}
+                    onChange={handleInputChange}
+                  />
+                  {formErrors.zipCode && (
+                    <p className='error-message'>{formErrors.zipCode}</p>
+                  )}
                 </div>
+              </div>
 
-                <label htmlFor='state' className='state-label'>
-                  State
-                </label>
-                <Select
-                  name='state'
-                  id='state'
-                  value={{ value: formData.state, label: formData.state }}
-                  options={stateOptions.map(option => ({
-                    value: option.value,
-                    label: option.label
-                  }))}
-                  onChange={(selectedOption) => handleSelectChange(selectedOption, 'state')}
-                  placeholder="Select a state"
-                />
-                {formErrors.state && (
-                  <p className='error-message'>{formErrors.state}</p>
-                )}
+              <label htmlFor='state' className='state-label'>
+                State
+              </label>
+              <Select
+                name='state'
+                id='state'
+                value={{ value: formData.state, label: formData.state }}
+                options={stateOptions.map(option => ({
+                  value: option.value,
+                  label: option.label
+                }))}
+                onChange={(selectedOption) => handleSelectChange(selectedOption, 'state')}
+                placeholder="Select a state"
+              />
+              {formErrors.state && (
+                <p className='error-message'>{formErrors.state}</p>
+              )}
             </fieldset>
 
             <button type='submit' className='button-save'>
@@ -282,5 +277,3 @@ const Form = () => {
 };
 
 export default Form;
-
-
