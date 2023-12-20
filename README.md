@@ -14,8 +14,9 @@ Ce projet vise à convertir l'application web interne HRnet de WealthHealth, act
 
 Avant de commencer à travailler sur ce projet, assurez-vous d'avoir les éléments suivants installés sur votre système :
 
-- [Node.js](https://nodejs.org/) (version recommandée : 18.2.0)
-- [npm](https://www.npmjs.com/)
+- [Node.js](https://nodejs.org/) (version 18.2.0 ou supérieure)
+- [npm](https://www.npmjs.com/) (version 8.19.2 ou supérieure)
+- Editeur de texte recommandé: VS Code
 
 ##  Téléchargement et Installation
 

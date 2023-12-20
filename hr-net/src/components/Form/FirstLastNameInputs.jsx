@@ -1,4 +1,3 @@
-// FirstNameLastNameInputs.jsx
 import React from 'react';
 
 const FirstLastNameInputs = ({ formData, handleInputChange, formErrors }) => (

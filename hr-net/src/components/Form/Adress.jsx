@@ -1,4 +1,3 @@
-// AddressInput.jsx
 import React from 'react';
 
 const Address = ({ formData, handleInputChange, formErrors }) => (

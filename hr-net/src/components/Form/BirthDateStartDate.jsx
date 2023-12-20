@@ -1,4 +1,3 @@
-// DateOfBirthStartDateInputs.jsx
 import React from 'react';
 import DatePicker from '../DatePicker/DatePicker.jsx';
 
