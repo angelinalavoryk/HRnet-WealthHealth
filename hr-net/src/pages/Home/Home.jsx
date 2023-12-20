@@ -50,16 +50,12 @@ const Home = () => {
     const errors = validateForm(formData);
 
     if (Object.keys(errors).length === 0) {
-      console.log('Formulaire valide, envoyez les données :', formData);
       setFormErrors({});
-
       // Ajouter l'employé en utilisant le contexte
       addEmployee(formData);
-
       // Afficher la confirmation
       setIsConfirmationVisible(true);
     } else {
-      console.log('Le formulaire comporte des erreurs.');
       setFormErrors(errors);
     }
   };
