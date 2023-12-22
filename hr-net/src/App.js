@@ -17,7 +17,7 @@ function App() {
           <main className="main-content">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/employees" element={<Employees />} />
+              <Route path="employees" element={<Employees />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
